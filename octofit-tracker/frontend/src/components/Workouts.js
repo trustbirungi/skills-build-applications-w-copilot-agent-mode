@@ -10,7 +10,7 @@ const Workouts = () => {
       .then(data => {
         console.log('Workouts endpoint:', endpoint);
         console.log('Fetched workouts:', data);
-        setWorkouts(data.results ? data.results : data);
+        setWorkouts(Array.isArray(data) ? data : (data.results || []));
       });
   }, [endpoint]);
 

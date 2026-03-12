@@ -10,7 +10,7 @@ const Users = () => {
       .then(data => {
         console.log('Users endpoint:', endpoint);
         console.log('Fetched users:', data);
-        setUsers(data.results ? data.results : data);
+        setUsers(Array.isArray(data) ? data : (data.results || []));
       });
   }, [endpoint]);
 

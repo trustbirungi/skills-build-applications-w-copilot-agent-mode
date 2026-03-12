@@ -10,7 +10,7 @@ const Teams = () => {
       .then(data => {
         console.log('Teams endpoint:', endpoint);
         console.log('Fetched teams:', data);
-        setTeams(data.results ? data.results : data);
+        setTeams(Array.isArray(data) ? data : (data.results || []));
       });
   }, [endpoint]);
 

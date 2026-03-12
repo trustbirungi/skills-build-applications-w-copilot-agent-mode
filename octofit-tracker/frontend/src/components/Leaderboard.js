@@ -10,7 +10,7 @@ const Leaderboard = () => {
       .then(data => {
         console.log('Leaderboard endpoint:', endpoint);
         console.log('Fetched leaderboard:', data);
-        setLeaderboard(data.results ? data.results : data);
+        setLeaderboard(Array.isArray(data) ? data : (data.results || []));
       });
   }, [endpoint]);
 

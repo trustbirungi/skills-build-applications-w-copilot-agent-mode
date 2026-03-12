@@ -10,7 +10,7 @@ const Activities = () => {
       .then(data => {
         console.log('Activities endpoint:', endpoint);
         console.log('Fetched activities:', data);
-        setActivities(data.results ? data.results : data);
+        setActivities(Array.isArray(data) ? data : (data.results || []));
       });
   }, [endpoint]);
 
